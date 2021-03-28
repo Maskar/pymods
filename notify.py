@@ -31,7 +31,6 @@ def prowl_notify(event = 'Done!', app = 'Prowl', beep = False):
     try:
         with open(home + '/.keys/.prowl') as f:
             key = f.readline().strip()
-            print(key)
             if key == '[Enter API Key]':
                 print('Error: API Key missing at ~/.keys/.prowl')
                 return
