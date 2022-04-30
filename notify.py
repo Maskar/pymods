@@ -1,11 +1,18 @@
-# Comments
+#!/usr/bin/env python
+#import sys
+#if __name__ == "__main__":
+#    print(f"Arguments count: {len(sys.argv)}")
+#    for i, arg in enumerate(sys.argv):
+#        print(f"Argument {i:>6}: {arg}")
 
 import notify
 
 def beep(tune=False, freq = 600, duration = .1):
+    '''
+        Makes a beep sound
+        Note: 'play' requires 'brew install sox' on MacOS
+    '''
 
-    # 'play' requires: brew install sox
-    
     import os
     cmd_play = os.popen('find / -name play -print -quit 2> /dev/null').read().strip()
     duration = duration  # second
@@ -48,6 +55,7 @@ def prowl_notify(event = 'Done!', app = 'Prowl', beep = False):
 
     except FileNotFoundError:
         print('Error: Config file missing at ~/.keys/.prowl')
+        print('You can get your key at https://www.prowlapp.com')
     except HTTPError:
         print('Error: Check URL and API Key at ~/.keys/.prowl')
 
